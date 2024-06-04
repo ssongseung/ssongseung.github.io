@@ -1,1 +1,452 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/ssongseung/zeze-playground/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>React App</title><script defer="defer" src="/ssongseung/zeze-playground/static/js/main.565f5009.js"></script><link href="/ssongseung/zeze-playground/static/css/main.5759cb20.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>포트폴리오</title>
+        <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+        <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="./css/common.css" />
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link rel="stylesheet" type="text/css" href="./css/mediaqueries.css" />
+        <script type="text/javascript" src="./js/main.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="logo">
+                <a href="/">SONG</a>
+            </h1>
+            <div class="menu-icon">
+                <button><span class="blind">메뉴</span></button>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="javascript:;" class="nav-link">Profile</a></li>
+                    <li class="nav-item"><a href="javascript:;" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="javascript:;" class="nav-link">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="profile">
+                <div class="profile-img">
+                    <img src="./assets/profile.jpg" alt="프로필" />
+                </div>
+                <div class="profile-area">
+                    <h2>송승현</h2>
+                    <h3>I want to be a creative <br /><span></span></h3>
+                    <p>
+                        꿈을 갖고 배우며, 새로운 변화와 환경에도<br class="m-show" />
+                        적응하고 노력하는 송승현입니다.<br />
+                        웹사이트 및 프로모션을 구축하고 개선하는데 기여했으며,<br class="m-show" />
+                        다양한 프로젝트를 수행하며<br class="m-hide" />
+                        HTML, CSS, JavaScript, jQuery 등을 활용하여<br class="m-show" />
+                        사용자 경험을 향상시키는 작업을 했습니다.
+                    </p>
+                    <button>이력서</button>
+                </div>
+            </section>
+            <section class="skills">
+                <h2 class="title">SKILLS.</h2>
+                <div class="skills-wrap">
+                    <div class="skills-area">
+                        <div class="skills-text">
+                            <h3>Frontend</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>HTML5</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>CSS(SASS)</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>JavaScript</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>TypeScript</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>VUE</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>React</h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="skills-area">
+                        <div class="skills-text">
+                            <h3>Tools</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>Git</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>Slack</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>Zeplin</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>Figma</h3>
+                            </li>
+                            <li class="skills-item">
+                                <img src="./assets/checkmark.png" alt="경험 아이콘" />
+                                <h3>XD</h3>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="works">
+                <h2 class="title">Projects.</h2>
+                <div class="tab-area">
+                    <nav class="tab-nav">
+                        <ul class="tab-list hide-scroll">
+                            <li>
+                                <button class="on" data-category="all">전체</button>
+                            </li>
+                            <li>
+                                <button data-category="build">구축</button>
+                            </li>
+                            <li>
+                                <button data-category="operate">운영</button>
+                            </li>
+                            <li>
+                                <button data-category="event">이벤트 페이지 운영</button>
+                            </li>
+                            <li>
+                                <button data-category="side">사이드 프로젝트</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="work">
+                    <div class="work-wrap">
+                        <div class="work-area event">
+                            <a href="javascript:;" class="work-btn" data-detail="samsung">
+                                <div class="work-img">
+                                    <img src="./assets/project01.png" alt="삼성닷컴 기획전" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>삼성닷컴 기획전</h3>
+                                    <p class="work-skills">#HTML #CSS #jQuery #JS</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area build">
+                            <a href="javascript:;" class="work-btn" data-detail="lotte">
+                                <div class="work-img">
+                                    <img src="./assets/project03.png" alt="롯데택배다이렉트GO 제휴몰" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>롯데택배다이렉트GO 제휴몰</h3>
+                                    <p class="work-skills">#HTML #CSS #jQuery</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area build">
+                            <a href="javascript:;" class="work-btn" data-detail="siv">
+                                <div class="work-img">
+                                    <img src="./assets/project08.png" alt="S.I.VILLAGE" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>S.I.VILLAGE</h3>
+                                    <p class="work-skills">#HTML #CSS #JS</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area operate">
+                            <a href="https://www.gccare.net/">
+                                <div class="work-img">
+                                    <img src="./assets/project06.png" alt="GC케어 모바일웹 구축" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>GC케어 모바일웹</h3>
+                                    <p class="work-skills">#HTML #CSS #JS #Vue</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area build">
+                            <a href="https://bizrcs.co.kr/">
+                                <div class="work-img">
+                                    <img src="./assets/project10.png" alt="SKT RCS" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>SKT RCS</h3>
+                                    <p class="work-skills">#HTML #CSS #jQuery</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area side">
+                            <a href="javascript:;" class="work-btn" data-detail="side">
+                                <div class="work-img">
+                                    <img
+                                        src="./assets/project13.png"
+                                        alt="JEBS젭스 정철영어성경학교
+                                    "
+                                    />
+                                </div>
+                                <div class="work-box">
+                                    <h3>JEBS젭스 정철영어성경학교</h3>
+                                    <p class="work-skills">#HTML #CSS #JS #React #TS</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area operate">
+                            <a href="https://www.shinsegae-enc.com/">
+                                <div class="work-img">
+                                    <img src="./assets/project04.png" alt="신세계건설 운영" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>신세계건설 운영</h3>
+                                    <p class="work-skills">#HTML #CSS #jQuery</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area operate">
+                            <a href="https://www.lotteglogis-direct-go.com/">
+                                <div class="work-img">
+                                    <img src="./assets/project03.png" alt="롯데택배다이렉트GO" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>롯데택배다이렉트GO</h3>
+                                    <p class="work-skills">#HTML #CSS #jQuery</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area event">
+                            <a href="https://www.samsung.com/sec/event/galaxy-watch6/hypertention-day/">
+                                <div class="work-img">
+                                    <img src="./assets/project02.jpg" alt="Samsung Galaxy Unpacked 2023" />
+                                </div>
+                                <div class="work-box">
+                                    <h3>Samsung Galaxy Unpacked 2023</h3>
+                                    <p class="work-skills">#HTML #CSS #jQuery</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="work-area event">
+                            <div class="work-img">
+                                <img src="./assets/project05.jpg" alt="Samsung Galaxy Unpacked 2023" />
+                            </div>
+                            <div class="work-box">
+                                <h3>Samsung Galaxy Unpacked 2023</h3>
+                                <p class="work-skills">#HTML #CSS #jQuery #AEM</p>
+                            </div>
+                        </div>
+                        <div class="work-area event">
+                            <div class="work-img">
+                                <img src="./assets/project07.jpg" alt="Samsung Galaxy Unpacked 2022" />
+                            </div>
+                            <div class="work-box">
+                                <h3>Samsung Galaxy Unpacked 2022</h3>
+                                <p class="work-skills">#HTML #CSS #jQuery #AEM</p>
+                            </div>
+                        </div>
+                        <div class="work-area event">
+                            <div class="work-img">
+                                <img src="./assets/project11.jpg" alt="Samsung Galaxy Unpacked 2021" />
+                            </div>
+                            <div class="work-box">
+                                <h3>Samsung Galaxy Unpacked 2021</h3>
+                                <p class="work-skills">#HTML #CSS #jQuery #AEM</p>
+                            </div>
+                        </div>
+                        <div class="work-area event">
+                            <div class="work-img">
+                                <img src="./assets/project12.jpg" alt="삼성닷컴 Global Roll-out" />
+                            </div>
+                            <div class="work-box">
+                                <h3>삼성닷컴 Global Roll-out</h3>
+                                <p class="work-skills">#HTML #CSS #jQuery #AEM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="details">
+                <h2 class="title">DETAILS.</h2>
+                <div class="detail">
+                    <div class="detail-wrap samsung">
+                        <div class="detail-img">
+                            <img src="./assets/project01.png" alt="삼성닷컴 기획전" />
+                        </div>
+                        <div class="detail-area">
+                            <div class="detail-text">
+                                <h2>삼성닷컴 기획전 운영</h2>
+                                <p>2023년 9월 - 2024년 1월</p>
+                            </div>
+                            <div class="detail-box">
+                                <p>주요업무</p>
+                                <ul>
+                                    <li>HTML, CSS, jQuery를 활용한 페이지 제작 및 유지보수</li>
+                                    <li>기획자와의 원활한 소통과 일정 관리</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>기술스택</p>
+                                <ul>
+                                    <li>HTML, CSS, jQuery</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>주요성과</p>
+                                <ul>
+                                    <li>
+                                        단기간에 기능 구현 요청을 받았으나 협의를 통해 기간을 연장, 완성도 높은 결과물
+                                        제공
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>개선사항</p>
+                                <ul>
+                                    <li>
+                                        리더십에 대해 많은 것을 배웠으며, 팀원들과의 협업을 통해 더 나은 발전 방향을
+                                        모색하고 실행
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-wrap lotte">
+                        <div class="detail-img">
+                            <img src="./assets/project03.png" alt="롯데택배다이렉트GO" />
+                        </div>
+                        <div class="detail-area">
+                            <div class="detail-text">
+                                <h2>롯데택배다이렉트GO 제휴몰</h2>
+                                <p>2023년 4월 - 2023년 5월</p>
+                            </div>
+                            <div class="detail-box">
+                                <p>주요업무</p>
+                                <ul>
+                                    <li>기존 사이트를 유지하면서 추가적인 레이아웃 및 기능 구현</li>
+                                    <li>파견으로 나가 단독으로 프로젝트 수행</li>
+                                    <li>외주 기획자 및 개발자와의 원활한 소통과 일정 관리</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>기술스택</p>
+                                <ul>
+                                    <li>HTML, CSS, jQuery</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>주요성과</p>
+                                <ul>
+                                    <li>첫 단독 파견 경험이었지만 책임감을 가지고 성공적으로 프로젝트 완료</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>개선사항</p>
+                                <ul>
+                                    <li>커뮤니케이션 강화 및 프로젝트 관리 역량 향상</li>
+                                    <li>보다 전문적이고 효율적인 코드 작성을 위해 지속적인 학습과 실전 경험 쌓기</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-wrap siv">
+                        <div class="detail-img">
+                            <img src="./assets/project08.png" alt="S.I.VILLAGE" />
+                        </div>
+                        <div class="detail-area">
+                            <div class="detail-text">
+                                <h2>S.I.VILLAGE</h2>
+                                <p>2021년 9월 - 2022년 7월</p>
+                            </div>
+                            <div class="detail-box">
+                                <p>주요업무</p>
+                                <ul>
+                                    <li>HTML 구조 설계 및 작성</li>
+                                    <li>자바스크립트를 활용하여 동적 기능 구현</li>
+                                    <li>팀 내외의 원활한 커뮤니케이션을 통한 업무 협업</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>기술스택</p>
+                                <ul>
+                                    <li>HTML, CSS, Javascript</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>주요성과</p>
+                                <ul>
+                                    <li>
+                                        초기에는 막연하게 코드를 작성했으나 경험과 학습을 통해 점차 효율적인 코드 작성
+                                    </li>
+                                    <li>탭 기능, 탑 버튼 기능, 헤더 기능 등을 구현</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>개선사항</p>
+                                <ul>
+                                    <li>불필요한 코드 최소화를 위해 재사용 가능한 형태로 기능 구현</li>
+                                    <li>지속적인 학습 및 자기계발을 통해 효율적인 코드 작성 능력 향상</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-wrap side">
+                        <div class="detail-img">
+                            <img
+                                src="./assets/project13.png"
+                                alt="JEBS젭스 정철영어성경학교
+                            "
+                            />
+                        </div>
+                        <div class="detail-area">
+                            <div class="detail-text">
+                                <h2>JEBS젭스 정철영어성경학교</h2>
+                                <p>2024년 3월 -</p>
+                            </div>
+                            <div class="detail-box">
+                                <p>주요업무</p>
+                                <ul>
+                                    <li>마이페이지, 아이디/비번 찾기 페이지 제작</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>기술스택</p>
+                                <ul>
+                                    <li>HTML, CSS, React, Typescript, tailwind</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <p>개선사항</p>
+                                <ul>
+                                    <li>
+                                        리액트로 첫 번째 사이드 프로젝트를 경험하며 컴포넌트, 리액트 UI 라이브러리
+                                        사용의 편리함을 느꼈습니다.
+                                    </li>
+                                    <li>기능적인 부분에 대해서는 더 많은 공부가 필요하다는 생각이 들었습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-btn">
+                    <button><span class="blind">위로</span></button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <h3>Thank you.</h3>
+            <p class="copyright">Copyright © 2024 Song. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>

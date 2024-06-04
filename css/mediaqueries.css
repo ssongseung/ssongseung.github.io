@@ -1,0 +1,174 @@
+@media (max-width: 1023px) {
+    .skills .skills-text {
+        width: 32%;
+    }
+
+    .works .tab-list {
+        justify-content: flex-start;
+    }
+
+    .details .detail-wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details .detail-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .details .detail-box {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    /* 프로필 */
+    .profile {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .profile .profile-area {
+        align-items: center;
+        gap: 10px;
+    }
+
+    .profile .profile-area h2 {
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+    }
+
+    .profile .profile-area h3 {
+        font-size: 1.25rem;
+        line-height: 1.8rem;
+    }
+
+    .profile .profile-area p {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .profile button {
+        margin-top: 1rem;
+    }
+
+    .profile .profile-img {
+        width: 200px;
+    }
+
+    /* 스킬 */
+    .skills .skills-wrap {
+        gap: 50px;
+        padding-left: 1rem;
+    }
+
+    .skills .skills-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .skills .skills-text {
+        width: 100%;
+    }
+
+    .skills .skills-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .skills .skills-list {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .skills .skills-item {
+        width: 100%;
+    }
+
+    .skills .skills-item img {
+        height: 32px;
+    }
+
+    /* 작업 */
+    .works {
+        padding: 0;
+    }
+    .works .title {
+        margin: 0 5% 4rem;
+    }
+
+    .works .tab-list {
+        justify-content: flex-start;
+        padding: 0 5%;
+    }
+
+    .works .tab-list button {
+        width: auto;
+        height: 45px;
+        margin-right: 15px;
+        font-size: 1.1rem;
+    }
+
+    .works .work {
+        margin: 0 5%;
+    }
+
+    .works .work-wrap {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .works .work-box {
+        margin-top: 32px;
+    }
+
+    .works .work-box h3 {
+        font-size: 1.2rem;
+    }
+
+    .works .work-skills {
+        font-size: 0.9rem;
+    }
+
+    /* 상세 */
+    .details .detail {
+        gap: 20px;
+    }
+
+    .details .detail-wrap {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .details .detail-wrap::after {
+        width: 100%;
+    }
+
+    .details .detail-img {
+        width: 100%;
+    }
+
+    .details .detail-area {
+        gap: 10px;
+        padding: 0.3rem;
+        padding-bottom: 1rem;
+    }
+    .details .detail-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .details .detail-box {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 1.1rem;
+    }
+
+    .details .detail-box p {
+        width: 100%;
+        text-align: left;
+    }
+
+    .details .detail-btn {
+        right: 5%;
+        bottom: 5rem;
+    }
+}

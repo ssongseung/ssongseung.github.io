@@ -1,0 +1,49 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.blind {
+    font-size: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+.hide-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+section .title {
+    margin-bottom: 4rem;
+    padding: 6rem 0 1.9rem;
+    font-size: 3rem;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+}
+
+.m-show {
+    display: none;
+}
+.m-hide {
+    display: block;
+}
+
+@media (max-width: 1023px) {
+    .m-hide {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    section .title {
+        margin-bottom: 4rem;
+        padding-top: 2rem;
+        font-size: 2rem;
+    }
+    .m-show {
+        display: block;
+    }
+}
