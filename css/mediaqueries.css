@@ -1,8 +1,4 @@
 @media (max-width: 1023px) {
-    .skills .skills-text {
-        width: 32%;
-    }
-
     .works .tab-list {
         justify-content: flex-start;
     }
@@ -63,12 +59,11 @@
     }
 
     .skills .skills-area {
-        flex-direction: column;
         gap: 10px;
     }
 
     .skills .skills-text {
-        width: 100%;
+        width: 43%;
     }
 
     .skills .skills-text h3 {
