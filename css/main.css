@@ -101,7 +101,7 @@
     font-size: 1.2rem;
 }
 
-.profile a {
+.profile button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +113,7 @@
     font-weight: 700;
 }
 
-.profile a:hover {
+.profile button:hover {
     border: 1px solid #fff;
     background-color: rgb(53, 53, 53);
     color: #fff;
