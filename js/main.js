@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (targetDetailWrap) {
                 targetDetailWrap.style.display = "flex";
             }
-            detailsSection.style.display = "block";
+            detailsSection.classList.remove("hide");
 
             window.scrollTo({
                 top: detailsSection.offsetTop - 50,
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const detailBtn = document.querySelector(".detail-btn");
+    const detailBtn = document.querySelector(".detail-btn button");
     const workSection = document.querySelector(".works");
 
     detailBtn.addEventListener("click", function () {
@@ -112,5 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
             top: workSection.offsetTop - 50,
             behavior: "smooth",
         });
+        detailsSection.classList.add("hide");
     });
 });
