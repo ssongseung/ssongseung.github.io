@@ -127,45 +127,55 @@
 
 /* 스킬 */
 .skills .skills-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 150px;
-    padding-left: 2rem;
+    color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 85%;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #121212;
 }
 
-.skills .skills-area {
-    display: flex;
+.skills .skills-wrap .skills-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
 }
 
-.skills .skills-text {
-    width: 32%;
+.skills .skills-wrap .skills-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 1rem;
+    background-color: #fff;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
-.skills .skills-text h3 {
-    font-size: 2rem;
+.skills .skills-wrap .skills-item:hover {
+    box-shadow: 0 4px 10px #fff8dc;
+    transform: scale(1.03);
 }
 
-.skills .skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    flex: 1;
-    text-align: center;
-}
-
-.skills .skills-item {
+.skills .skills-wrap .skills-info {
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: 220px;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.skills .skills-item img {
-    height: 30px;
+.skills .skills-wrap .skills-info span {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #131313;
 }
 
-.skills .skills-item h3 {
-    font-size: 1.5rem;
+.skills .skills-wrap .skills-img {
+    max-height: 95px;
+}
+
+.skills .skills-wrap .skills-img img {
+    max-height: inherit;
 }
 
 /* 작업 */

@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", (event) => {
             event.preventDefault();
 
+            navLinks.forEach((navLink) => {
+                navLink.classList.remove("on");
+            });
+
+            link.classList.add("on");
+
             const targetSection = sections[index];
             const sectionTop = targetSection.offsetTop;
 
@@ -29,6 +35,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    window.addEventListener("scroll", () => {
+        let currentSectionIndex = 0;
+
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop - navbar.offsetHeight;
+            const sectionHeight = section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSectionIndex = index;
+            }
+        });
+
+        navLinks.forEach((navLink) => {
+            navLink.classList.remove("on");
+        });
+
+        navLinks[currentSectionIndex].classList.add("on");
+    });
+
     // 프로젝트 메뉴 이벤트
     const tabs = document.querySelectorAll(".tab-list button");
 
@@ -37,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tabs.forEach((otherTab) => {
                 otherTab.classList.remove("on");
             });
+
             tab.classList.add("on");
 
             const targetCategory = tab.getAttribute("data-category");
@@ -72,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
             detailsSection.style.display = "block";
 
             window.scrollTo({
-                top: detailsSection.offsetTop + 100,
+                top: detailsSection.offsetTop - 50,
                 behavior: "smooth",
             });
         });
@@ -83,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     detailBtn.addEventListener("click", function () {
         window.scrollTo({
-            top: workSection.offsetTop + 100,
+            top: workSection.offsetTop - 50,
             behavior: "smooth",
         });
     });
