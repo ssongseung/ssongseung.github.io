@@ -1,4 +1,8 @@
 @media (max-width: 1023px) {
+    .profile {
+        gap: 4rem;
+    }
+
     .skills .skills-wrap .skills-list {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -62,12 +66,14 @@
 
     .skills .skills-wrap .skills-list {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .skills .skills-wrap .skills-img {
-        max-height: 40px;
+        max-height: 50px;
     }
     .skills .skills-wrap .skills-info span {
+        min-width: auto;
         font-size: 1rem;
     }
 

@@ -1,5 +1,7 @@
 body {
-    font-family: "Pretendard" "Noto Sans KR", serif;
+    background-color: #333646;
+    font-family: "Pretendard", "Noto Sans KR", serif;
+    color: #ebebec;
 }
 
 /* 헤더 */
@@ -12,7 +14,7 @@ body {
     left: 0;
     width: 100%;
     padding: 2rem 9%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #333646;
     z-index: 1;
 }
 
@@ -30,6 +32,12 @@ body {
     position: relative;
     font-size: 1.5rem;
     font-weight: 700;
+    color: #b7b7bc;
+}
+
+.navbar .nav-link.on,
+.navbar .nav-link:hover {
+    color: #ebebec;
 }
 
 .navbar .nav-link::after {
@@ -39,7 +47,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #ffc25c;
     transition: 0.5s;
     transform-origin: center;
 }

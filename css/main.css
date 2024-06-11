@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    flex: 1;
     min-width: 320px;
 }
 
@@ -40,8 +41,8 @@
     position: absolute;
     width: calc(100% + 8px);
     height: 100%;
-    border-left: 3px solid #fff;
-    background-color: #fff;
+    border-left: 3px solid #333646;
+    background-color: #333646;
     right: -8px;
     animation: cursor 0.6s infinite, typing 25s steps(14) infinite;
 }
@@ -107,15 +108,14 @@
     align-items: center;
     width: 126px;
     height: 50px;
-    border: 1px solid rgb(53, 53, 53);
+    border: 1px solid #ffc25c;
     border-radius: 20px;
     font-size: 18px;
     font-weight: 700;
+    color: #ffc25c;
 }
 
 .profile a:hover {
-    border: 1px solid #fff;
-    background-color: rgb(53, 53, 53);
     color: #fff;
 }
 
@@ -123,6 +123,10 @@
     width: 350px;
     border-radius: 100%;
     overflow: hidden;
+}
+
+.skills {
+    background-color: #252734;
 }
 
 /* 스킬 */
@@ -133,7 +137,6 @@
     width: 85%;
     margin: auto;
     margin-top: 2rem;
-    background-color: #121212;
 }
 
 .skills .skills-wrap .skills-list {
@@ -143,7 +146,6 @@
 }
 
 .skills .skills-wrap .skills-item {
-    margin-bottom: 15px;
     padding: 10px;
     border-radius: 1rem;
     background-color: #fff;
@@ -165,9 +167,12 @@
 }
 
 .skills .skills-wrap .skills-info span {
+    display: inline-block;
+    min-width: 135px;
     font-size: 2rem;
     font-weight: 500;
     color: #131313;
+    text-align: center;
 }
 
 .skills .skills-wrap .skills-img {
@@ -205,7 +210,7 @@
     border: 1px solid #e0e0e0;
     font-size: 1.5rem;
     letter-spacing: 0.8px;
-    color: #131922;
+    color: #ebebec;
 }
 
 .works .tab-list button.on {

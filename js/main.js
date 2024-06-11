@@ -114,4 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         detailsSection.classList.add("hide");
     });
+
+    ScrollReveal({ distance: "80px", duration: 2000, delay: 200 });
+
+    ScrollReveal().reveal(".profile-area, .title", { origin: "top" });
+    ScrollReveal().reveal(".profile-img ", { origin: "bottom" });
+    ScrollReveal().reveal(".skills-wrap ", { origin: "left" });
+    ScrollReveal().reveal(".tab-area, .work ", { origin: "right" });
 });
