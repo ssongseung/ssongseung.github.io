@@ -119,6 +119,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ScrollReveal().reveal(".profile-area, .title", { origin: "top" });
     ScrollReveal().reveal(".profile-img ", { origin: "bottom" });
-    ScrollReveal().reveal(".skills-wrap ", { origin: "left" });
-    ScrollReveal().reveal(".tab-area, .work ", { origin: "right" });
+    ScrollReveal().reveal(".skills-wrap, .tab-area, .work ", { origin: "left" });
 });
