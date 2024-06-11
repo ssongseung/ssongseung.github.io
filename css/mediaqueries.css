@@ -29,6 +29,7 @@
     .profile {
         flex-direction: column;
         gap: 3rem;
+        padding-top: 6rem;
     }
 
     .profile .profile-area {
