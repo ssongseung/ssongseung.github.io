@@ -22,6 +22,7 @@ const List = ({ filteredItems, activeFilter, resetFlip }) => {
 
     return (
         <Swiper
+            key={activeFilter}
             spaceBetween={20}
             slidesPerView={"auto"}
             className="h-full !py-[30px] !px-[20px] md:!ml-[100px] md:!py-0 md:!pr-[100px] md:!pl-[10px]"
