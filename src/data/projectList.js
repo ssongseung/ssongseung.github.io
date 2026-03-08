@@ -91,7 +91,7 @@ export const projectList = [
                 title: "Samsung Galaxy Unpacked 2023",
                 type: "white",
                 btnColor: "white",
-                img: "/images/project02.png",
+                img: "/images/project02.jpg",
                 role: "퍼블리싱 및 마크업 작업",
                 skill: "HTML / CSS / jQuery",
             },
