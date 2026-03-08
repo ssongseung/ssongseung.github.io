@@ -4,12 +4,11 @@ import Tag from "./Tag";
 import Title from "./Title";
 import Button from "./Button";
 
-const CardItem = ({ date, tags, type, title, btnColor, img, role, skill }) => {
-    console.log(img);
-
+const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, resetFlip }) => {
     return (
         <Card
             type={type}
+            resetFlip={resetFlip}
             front={(handleFlip) => (
                 <>
                     <ul className="flex flex-col gap-[4px]">

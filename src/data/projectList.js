@@ -19,7 +19,7 @@ export const projectList = [
         id: 2,
         items: [
             {
-                date: "24.09 ~ 26.",
+                date: "24.09 ~ 26.03",
                 tags: ["구축", "운영/개선"],
                 title: "칠성몰 ",
                 type: "blue",
