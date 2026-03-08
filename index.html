@@ -5,17 +5,17 @@
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>포트폴리오</title>
+        <script>
+            const redirect = sessionStorage.getItem("redirect");
+            if (redirect) {
+                sessionStorage.removeItem("redirect");
+                window.history.replaceState(null, null, redirect);
+            }
+        </script>
       <script type="module" crossorigin src="/assets/index-gSBIN8Zz.js"></script>
       <link rel="stylesheet" crossorigin href="/assets/index-DPzTcBEW.css">
     </head>
     <body>
         <div id="root"></div>
-        <script>
-            const redirect = sessionStorage.redirect;
-            if (redirect) {
-                sessionStorage.removeItem("redirect");
-                history.replaceState(null, null, redirect);
-            }
-        </script>
     </body>
 </html>
