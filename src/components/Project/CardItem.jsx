@@ -34,7 +34,7 @@ const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, contrib
                 <>
                     <div className="flex flex-col gap-[5px]">
                         <div className="w-full rounded-[12px] overflow-hidden">
-                            <img src={img} alt="이미지" />
+                            <img src={img} alt={`${title} 이미지`} />
                         </div>
                         <div>
                             <p className="text-[14px] text-black font-bold">Role</p>

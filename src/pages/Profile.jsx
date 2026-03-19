@@ -1,5 +1,5 @@
 
-import { useState, useCallback  } from "react";
+import { useCallback  } from "react";
 import { useBreakpoint } from "../hooks/useBreakpoint";
 import { profileList } from '../data/profileList';
 
@@ -35,15 +35,15 @@ const Profile = () => {
   }, [isPC]);
 
   return (
-    <div className="flex-1 flex items-center justify-center h-full px-[20px] md:px-0 md:overflow-y-scroll">
-      <div className="flex gap-[20px] perspective-[1200px] flex-col lg:flex-row md:gap-[60px] md:mt-[300px] lg:md:mt-0">
+    <div className="flex-1 flex items-center justify-center h-full px-[20px] md:items-start md:px-0 md:overflow-y-scroll lg:items-center">
+      <div className="flex gap-[20px] perspective-[1200px] flex-col lg:flex-row md:gap-[30px]">
         {profileList.map((item, index) => {
           return (
             <div
               key={index}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="relative w-full h-[380px] rounded-[28px] p-[2px] transition-transform duration-200 brightness-110 transform-gpu will-change-transform md:w-full md:h-full lg:h-[480px] overflow-hidden"
+              className="relative w-full h-full rounded-[28px] p-[2px] transition-transform duration-200 brightness-110 transform-gpu will-change-transform md:w-full md:h-full lg:h-[500px] overflow-hidden"
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* 네온 테두리 */}
@@ -70,7 +70,7 @@ const Profile = () => {
 
                 <div>
                   <h2
-                    className="text-xl font-bold mb-6 leading-snug tracking-tight drop-shadow-[0_0_10px_rgba(96,165,250,0.6)]"
+                    className="text-xl font-bold mb-3 leading-snug tracking-tight drop-shadow-[0_0_10px_rgba(96,165,250,0.6)]"
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
                   <p

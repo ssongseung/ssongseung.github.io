@@ -217,7 +217,7 @@ export const projectList = [
                 title: "삼성닷컴 Global Roll-out",
                 type: "blue",
                 btnColor: "blue",
-                url: "https://www.gccare.net/",
+                url: "",
                 img: "/images/project12.jpg",
                 role: "퍼블리싱 및 마크업 작업",
                 skill: "HTML / CSS / jQuery / AEM",
