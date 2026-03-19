@@ -5,6 +5,7 @@ import Title from "./Title";
 import Button from "./Button";
 
 const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, contribution, resetFlip }) => {
+    const textColor = type === "blue" ? "text-white" : "text-black";
     return (
         <Card
             type={type}
@@ -37,16 +38,16 @@ const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, contrib
                             <img src={img} alt={`${title} 이미지`} />
                         </div>
                         <div>
-                            <p className="text-[14px] text-black font-bold">Role</p>
-                            <p className="text-[16px] text-black">{role}</p>
+                            <p className={`text-[14px] ${textColor} font-bold`}>Role</p>
+                            <p className={`text-[16px] ${textColor}`}>{role}</p>
                         </div>
                         <div>
-                            <p className="text-[14px] text-black font-bold">Skills</p>
-                            <p className="text-[16px] text-black">{skill}</p>
+                            <p className={`text-[14px] ${textColor} font-bold`}>Skills</p>
+                            <p className={`text-[16px] ${textColor}`}>{skill}</p>
                         </div>
                         <div>
-                            <p className="text-[14px] text-black font-bold">기여도</p>
-                            <p className="text-[16px] text-black">{contribution}</p>
+                            <p className={`text-[14px] ${textColor} font-bold`}>기여도</p>
+                            <p className={`text-[16px] ${textColor}`}>{contribution}</p>
                         </div>
                     </div>
                     <Button onClick={handleFlip} color={btnColor} title="Back" />
