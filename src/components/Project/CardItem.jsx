@@ -4,7 +4,7 @@ import Tag from "./Tag";
 import Title from "./Title";
 import Button from "./Button";
 
-const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, resetFlip }) => {
+const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, contribution, resetFlip }) => {
     return (
         <Card
             type={type}
@@ -36,13 +36,17 @@ const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, resetFl
                         <div className="w-full rounded-[12px] overflow-hidden">
                             <img src={img} alt="이미지" />
                         </div>
-                        <div className="mt-[10px]">
-                            <p className="text-[18px] text-black">Role</p>
+                        <div>
+                            <p className="text-[14px] text-black font-bold">Role</p>
                             <p className="text-[16px] text-black">{role}</p>
                         </div>
-                        <div className="mt-[10px]">
-                            <p className="text-[18px] text-black">Skills</p>
+                        <div>
+                            <p className="text-[14px] text-black font-bold">Skills</p>
                             <p className="text-[16px] text-black">{skill}</p>
+                        </div>
+                        <div>
+                            <p className="text-[14px] text-black font-bold">기여도</p>
+                            <p className="text-[16px] text-black">{contribution}</p>
                         </div>
                     </div>
                     <Button onClick={handleFlip} color={btnColor} title="Back" />
