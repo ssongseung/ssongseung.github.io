@@ -34,20 +34,20 @@ const CardItem = ({ date, tags, type, title, btnColor, img, role, skill, contrib
             back={(handleFlip) => (
                 <>
                     <div className="flex flex-col gap-[5px]">
-                        <div className="w-full rounded-[12px] overflow-hidden">
+                        <div className="w-full rounded-[12px] overflow-hidden h-[107px]">
                             <img src={img} alt={`${title} 이미지`} />
                         </div>
                         <div>
                             <p className={`text-[14px] ${textColor} font-bold`}>Role</p>
-                            <p className={`text-[16px] ${textColor}`}>{role}</p>
+                            <p className={`text-[15px] ${textColor}`}>{role}</p>
                         </div>
                         <div>
                             <p className={`text-[14px] ${textColor} font-bold`}>Skills</p>
-                            <p className={`text-[16px] ${textColor}`}>{skill}</p>
+                            <p className={`text-[15px] ${textColor}`}>{skill}</p>
                         </div>
                         <div>
                             <p className={`text-[14px] ${textColor} font-bold`}>기여도</p>
-                            <p className={`text-[16px] ${textColor}`}>{contribution}</p>
+                            <p className={`text-[15px] ${textColor}`}>{contribution}</p>
                         </div>
                     </div>
                     <Button onClick={handleFlip} color={btnColor} title="Back" />
