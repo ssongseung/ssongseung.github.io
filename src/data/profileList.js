@@ -6,12 +6,13 @@ export const profileList = [
     {
         title: "SKILLS",
         text: `
-    - React 기반 SPA 개발<br />
-    - 전역 상태 관리 및 모듈 단위 구조 설계<br />
-    - API 명세 기반 데이터 처리 및 예외 대응<br />
-    - 시맨틱 마크업 기반 UI 구현 및 퍼블리싱<br />
-    - Tailwind / Styled-Components 기반 스타일 구조 설계<br />
-    - 반응형 웹 및 크로스 브라우징 대응
+    - React 기반 SPA 개발 및 컴포넌트 구조 설계<br />
+    - API 연동 및 데이터 흐름 기반 UI 구현<br />
+    - 상태 관리 기반 인터랙션 처리<br />
+    - Next.js 기반 페이지 구조 설계<br />
+    - Tailwind CSS / Styled-components 스타일링<br />
+    - 시맨틱 마크업 및 반응형 퍼블리싱<br />
+    - 크로스 브라우징 및 웹 접근성 대응<br />
     `,
     },
     {

@@ -24,7 +24,7 @@ const Project = () => {
 
     return (
         <>
-            <div className="relative top-1/2 left-1/2 -translate-x-1/2 z-10 w-[90%] md:absolute md:top-[4%] md:left-0 md:translate-x-0 md:w-auto ">
+            <div className="relative top-1/2 left-1/2 -translate-x-1/2 z-10 w-[90%] md:absolute md:top-0 md:left-[2%] md:translate-x-0 md:w-auto lg:top-[4%]">
                 <Filter onClick={handleFilterClick} activeFilter={activeFilter} />
             </div>
             <List filteredItems={filteredItems} activeFilter={activeFilter} resetFlip={resetFlip} />

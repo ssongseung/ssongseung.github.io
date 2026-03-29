@@ -74,7 +74,7 @@ const Profile = () => {
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
                   <p
-                    className="text-sm leading-relaxed opacity-80"
+                    className="text-sm leading-relaxed opacity-80 break-all"
                     dangerouslySetInnerHTML={{ __html: item.text }}
                   />
                 </div>

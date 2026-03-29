@@ -3,7 +3,8 @@ import { Link, useLocation  } from "react-router-dom";
 
 const data = [
   {text: 'PROFILE', link: "/"},
-  {text: 'PROJECT', link: "/project"}
+  {text: 'PROJECT', link: "/project"},
+  {text: 'CAREER', link: "/career"},
 ]
 const Nav = () => {
   const location = useLocation();
