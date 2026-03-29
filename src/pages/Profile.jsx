@@ -35,9 +35,7 @@ const Profile = () => {
   }, [isPC]);
 
   return (
-    <div className="flex-1 flex flex-col h-full px-[20px] pb-[30px] overflow-y-auto md:px-[40px] md:py-[50px] no-scrollbar">
-      <p className="text-xs tracking-widest text-blue-300 opacity-70 mb-6">PROFILE</p>
-
+    <div className="flex-1 flex flex-col justify-center h-full px-[20px] pb-[30px] overflow-y-auto md:px-[40px] md:py-[50px] no-scrollbar">
       <div className="flex gap-[20px] perspective-[1200px] flex-col lg:flex-row md:gap-[30px]">
         {profileList.map((item, index) => {
           return (

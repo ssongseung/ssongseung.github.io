@@ -9,8 +9,7 @@ const Career = () => {
     };
 
     return (
-        <div className="flex-1 flex flex-col h-full px-[20px] pb-[30px] overflow-y-auto md:px-[40px] md:py-[50px] no-scrollbar">
-            <p className="text-xs tracking-widest text-blue-300 opacity-70 mb-6">CAREER</p>
+        <div className="flex-1 flex flex-col h-full px-[20px] pb-[30px] overflow-y-auto md:px-[40px] md:py-[10%] no-scrollbar">
 
             <div className="flex flex-col gap-4">
                 {careerList.map((item) => {
