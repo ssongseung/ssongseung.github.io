@@ -35,7 +35,9 @@ const Profile = () => {
   }, [isPC]);
 
   return (
-    <div className="flex-1 flex items-center justify-center h-full px-[20px] md:items-start md:px-0 md:overflow-y-scroll lg:items-center">
+    <div className="flex-1 flex flex-col h-full px-[20px] pb-[30px] overflow-y-auto md:px-[40px] md:py-[50px] no-scrollbar">
+      <p className="text-xs tracking-widest text-blue-300 opacity-70 mb-6">PROFILE</p>
+
       <div className="flex gap-[20px] perspective-[1200px] flex-col lg:flex-row md:gap-[30px]">
         {profileList.map((item, index) => {
           return (
@@ -57,15 +59,11 @@ const Profile = () => {
               <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 w-[70%] h-[60px] bg-blue-500/20 blur-[40px] opacity-60" />
 
               {/* 카드 본체 */}
-              <div className="relative w-full h-full rounded-[26px] bg-white/10 backdrop-blur-xl border border-white/20 p-8 flex flex-col gap-6 overflow-hidden">
+              <div className="relative w-full h-full rounded-[26px] bg-white/10 backdrop-blur-xl border border-white/20 p-8 flex flex-col gap-6 md:overflow-y-auto no-scrollbar">
 
                 {/* light sweep */}
                 <div className="absolute inset-0 overflow-hidden rounded-[26px]">
                   <div className="absolute top-[-50%] left-[-30%] w-[200%] h-[200%] bg-gradient-to-br from-white/10 via-transparent to-transparent rotate-12 opacity-30" />
-                </div>
-
-                <div className="text-xs tracking-widest text-blue-300 opacity-70">
-                  PROFILE
                 </div>
 
                 <div>

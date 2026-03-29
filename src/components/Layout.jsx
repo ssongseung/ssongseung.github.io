@@ -13,7 +13,7 @@ const Layout = () => {
       <Background />
       <div className="flex flex-col h-full md:flex-row min-h-[inherit] md:items-center">
         <Nav />
-        <main className="flex-1 w-full h-full overflow-hidden md:h-[80%] lg:h-full">
+        <main className="flex-1 w-full h-full overflow-hidden lg:h-full">
           <section className="relative w-full h-full">
             <Outlet />
           </section>

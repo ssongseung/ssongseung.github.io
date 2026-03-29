@@ -11,8 +11,8 @@ const Nav = () => {
   const { pathname } = location;
 
   return (
-    <nav className="relative w-full h-[200px] flex items-center md:w-[260px] md:h-full">
-      <div className="relative w-full h-[50%]  md:h-[80%] mr-10 ml-10 rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden md:mr-0">
+    <nav className="relative w-full h-[180px] flex items-center md:w-[260px] md:h-full">
+      <div className="relative w-full h-[50%] md:h-[80%] mr-10 ml-10 rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden md:mr-0">
 
         {/* 오른쪽 네온 라인 */}
         <div className="absolute right-0 bottom-0 w-full h-[2px] md:top-0 md:w-[2px] md:h-full ">
