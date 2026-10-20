@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+
+  --color-paper: #faf9f6;
+  --color-paper-soft: #f2f0ea;
+  --color-ink: #16161a;
+  --color-ink-soft: #6c6c74;
+  --color-ink-faint: #9a9aa1;
+  --color-line: #e7e4dd;
+  --color-accent: #3355ff;
+  --color-accent-soft: #eef1ff;
+  --color-accent-ink: #2443d6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    
-display: block;
-}
-
-
-.perspective-\[800px\] {
-  perspective: 800px;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -23,6 +29,30 @@ display: block;
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* 스크롤 reveal: useReveal 훅이 .is-visible을 토글 */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }

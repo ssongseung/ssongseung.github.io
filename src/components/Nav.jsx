@@ -1,63 +1,90 @@
-import React from 'react';
-import { Link, useLocation  } from "react-router-dom";
+import { useState } from "react";
+import { useActiveSection } from "../hooks/useActiveSection";
 
-const data = [
-  {text: 'PROFILE', link: "/"},
-  {text: 'PROJECT', link: "/project"},
-  {text: 'CAREER', link: "/career"},
-]
+const navItems = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "career", label: "Career" },
+    { id: "project", label: "Project" },
+    { id: "contact", label: "Contact" },
+];
+
+const sectionIds = navItems.map((item) => item.id);
+
 const Nav = () => {
-  const location = useLocation();
-  const { pathname } = location;
+    const [isOpen, setIsOpen] = useState(false);
+    const activeId = useActiveSection(sectionIds);
 
-  return (
-    <nav className="relative w-full h-[180px] flex items-center md:w-[260px] md:h-full">
-      <div className="relative w-full h-[50%] md:h-[80%] mr-10 ml-10 rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden md:mr-0">
+    const handleNavClick = (e, id) => {
+        e.preventDefault();
+        setIsOpen(false);
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
 
-        {/* 오른쪽 네온 라인 */}
-        <div className="absolute right-0 bottom-0 w-full h-[2px] md:top-0 md:w-[2px] md:h-full ">
-          <div className="absolute inset-0 bg-blue-400" />
-          <div className="absolute inset-0 blur-[8px] bg-blue-400 opacity-80" />
-          <div className="absolute inset-0 blur-[20px] bg-blue-500 opacity-60" />
-        </div>
-
-        {/* 하단 glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80px] bg-blue-500/20 blur-[50px]" />
-
-        <ul className="h-full flex flex-row items-center justify-center pl-12 pr-12 gap-8 relative z-10 md:flex-col md:items-start md:pr-0">
-          {data.map((item, index) => {
-            const isActive = pathname === item.link;
-
-            return (
-              <li key={index}>
-                <Link
-                  to={item.link}
-                  className={`relative text-lg tracking-wide transition md:pl-4 ${
-                    isActive ? "text-white" : "text-white/60"
-                  }`}
+    return (
+        <header className="fixed top-0 inset-x-0 z-50 border-b border-line bg-paper/80 backdrop-blur-md">
+            <div className="max-w-5xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
+                <a
+                    href="#home"
+                    onClick={(e) => handleNavClick(e, "home")}
+                    className="text-lg font-bold tracking-tight text-ink"
                 >
-                  {/* active bar */}
-                  <span
-                    className={`absolute left-0 -bottom-1.5 w-full h-[3px] rounded-full transition-all duration-300 md:top-1/2 md:-translate-y-1/2 md:w-[3px] md:h-6 ${
-                      isActive
-                        ? "bg-blue-400 shadow-[0_0_12px_#60a5fa]"
-                        : "bg-transparent"
-                    }`}
-                  />
+                    SSH<span className="text-accent">.</span>
+                </a>
 
-                  {/* glow */}
-                  {isActive && (
-                    <span className="absolute left-0 -bottom-1.5 w-full h-[10px] bg-blue-400/40 blur-[10px] md:top-1/2 md:-translate-y-1/2 md:w-[10px] md:h-10" />
-                  )}
-                  {item.text}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </nav>
-  );
+                {/* 데스크탑 내비 */}
+                <ul className="hidden md:flex items-center gap-8">
+                    {navItems.map((item) => (
+                        <li key={item.id}>
+                            <a
+                                href={`#${item.id}`}
+                                onClick={(e) => handleNavClick(e, item.id)}
+                                className={`text-sm font-medium transition-colors ${
+                                    activeId === item.id ? "text-accent" : "text-ink-soft hover:text-ink"
+                                }`}
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* 모바일 햄버거 */}
+                <button
+                    className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-[5px]"
+                    onClick={() => setIsOpen((prev) => !prev)}
+                    aria-label="메뉴 열기"
+                    aria-expanded={isOpen}
+                >
+                    <span className={`block w-5 h-[2px] bg-ink transition-transform ${isOpen ? "translate-y-[3.5px] rotate-45" : ""}`} />
+                    <span className={`block w-5 h-[2px] bg-ink transition-transform ${isOpen ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
+                </button>
+            </div>
+
+            {/* 모바일 드롭다운 */}
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-300 border-t border-line ${
+                    isOpen ? "max-h-80" : "max-h-0 border-t-0"
+                }`}
+            >
+                <ul className="flex flex-col px-5 py-2">
+                    {navItems.map((item) => (
+                        <li key={item.id}>
+                            <a
+                                href={`#${item.id}`}
+                                onClick={(e) => handleNavClick(e, item.id)}
+                                className={`block py-3 text-sm font-medium ${
+                                    activeId === item.id ? "text-accent" : "text-ink-soft"
+                                }`}
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </header>
+    );
 };
 
 export default Nav;
