@@ -21,7 +21,7 @@ export const projectList = [
         items: [
             {
                 date: "24.09 ~ 26.03",
-                tags: ["구축", "운영/개선"],
+                tags: ["구축", "운영"],
                 title: "칠성몰 ",
                 type: "blue",
                 btnColor: "blue",
@@ -168,7 +168,7 @@ export const projectList = [
             {
                 date: "21.09 ~ 22.07",
                 tags: ["구축"],
-                title: "S.I.VILLAGE 구축 사업",
+                title: "S.I.VILLAGE 구축",
                 type: "blue",
                 btnColor: "blue",
                 url: "",

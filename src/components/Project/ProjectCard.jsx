@@ -36,7 +36,7 @@ const ProjectCard = ({ date, tags, title, url, img, role, skill, contribution })
 
                 <div className="flex items-center justify-between text-xs text-ink-faint pt-2 border-t border-line">
                     <span>{skill}</span>
-                    <span className="font-medium text-accent">{contribution}</span>
+                    <span className="font-medium text-accent">기여도 {contribution}</span>
                 </div>
 
                 {url && (

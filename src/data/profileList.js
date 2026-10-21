@@ -6,7 +6,7 @@ export const profile = {
         "React 기반 SPA 개발 및 컴포넌트 구조 설계",
         "API 연동 및 데이터 흐름 기반 UI 구현",
         "상태 관리 기반 인터랙션 처리",
-        "Next.js 기반 페이지 구조 설계",
+        // "Next.js 기반 페이지 구조 설계",
         "Tailwind CSS / Styled-components 스타일링",
         "시맨틱 마크업 및 반응형 퍼블리싱",
         "크로스 브라우징 및 웹 접근성 대응",
