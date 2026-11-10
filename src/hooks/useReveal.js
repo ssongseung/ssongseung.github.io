@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 
 /**
- * 스크롤에 들어오면 .is-visible 클래스를 붙여 fade-up 되는 미니멀 reveal 훅.
+ * 스크롤에 들어오면 .is-visible 클래스를 붙여 fade-up 되는 reveal 훅.
  * 반환된 ref를 reveal 시키고 싶은 엘리먼트에 꽂아주면 됨.
+ * (.reveal 또는 .reveal-stagger 클래스와 함께 사용)
  */
-export const useReveal = (options = {}) => {
+export const useReveal = ({ threshold = 0.15, rootMargin = "0px 0px -10% 0px" } = {}) => {
     const ref = useRef(null);
 
     useEffect(() => {
@@ -18,12 +19,12 @@ export const useReveal = (options = {}) => {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.15, rootMargin: "0px 0px -10% 0px", ...options }
+            { threshold, rootMargin }
         );
 
         observer.observe(el);
         return () => observer.disconnect();
-    }, [options]);
+    }, [threshold, rootMargin]);
 
     return ref;
 };

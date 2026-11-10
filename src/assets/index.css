@@ -5,6 +5,7 @@
 
   --color-paper: #faf9f6;
   --color-paper-soft: #f2f0ea;
+  --color-sand: #efe8da;
   --color-ink: #16161a;
   --color-ink-soft: #6c6c74;
   --color-ink-faint: #9a9aa1;
@@ -12,6 +13,8 @@
   --color-accent: #3355ff;
   --color-accent-soft: #eef1ff;
   --color-accent-ink: #2443d6;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
@@ -22,6 +25,12 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -33,26 +42,266 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-/* 스크롤 reveal: useReveal 훅이 .is-visible을 토글 */
+/* ---------- 스크롤 reveal: useReveal 훅이 .is-visible을 토글 ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 80ms);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none; /* translateY(0)도 fixed 자식의 기준점을 바꾸므로 none 사용 */
+}
+
+/* 자식 요소를 순차적으로 등장시키는 stagger reveal */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Hero ---------- */
+@keyframes line-up {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.line-mask > span {
+  display: block;
+  animation: line-up 1.1s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 120ms + 100ms);
+}
+
+.fade-up {
+  animation: fade-up 0.9s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 100ms);
+}
+
+.hero-grid {
+  background-image: linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+.hero-spotlight {
+  background: radial-gradient(
+    480px circle at var(--mx, 70%) var(--my, 30%),
+    color-mix(in srgb, var(--color-accent) 18%, transparent),
+    transparent 70%
+  );
+  transition: background 0.2s;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+.scroll-dot {
+  animation: scroll-dot 1.8s ease-in-out infinite;
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- 마우스 위치를 따라가는 스포트라이트 카드 ---------- */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    260px circle at var(--x, -100%) var(--y, -100%),
+    var(--color-accent),
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at var(--x, -100%) var(--y, -100%),
+    color-mix(in srgb, var(--color-accent) 7%, transparent),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.spotlight-group:hover .spotlight-card::before,
+.spotlight-group:hover .spotlight-card::after {
+  opacity: 1;
+}
+
+/* ---------- 틸트 카드 글레어 ---------- */
+.tilt-glare {
+  background: radial-gradient(
+    400px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(255, 255, 255, 0.35),
+    transparent 50%
+  );
+}
+
+/* ---------- 프로젝트 리스트 ---------- */
+.archive-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-ink);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.5s var(--ease-out-expo);
+  z-index: -1;
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .archive-row:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+.cursor-preview {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .cursor-preview {
+    display: block;
+  }
+}
+
+/* ---------- 아코디언 (grid-rows 트릭으로 높이 auto 애니메이션) ---------- */
+.accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-out-expo);
+}
+
+.accordion.is-open {
+  grid-template-rows: 1fr;
+}
+
+.accordion > div {
+  overflow: hidden;
+}
+
+/* ---------- Toast ---------- */
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.toast {
+  animation: toast-in 0.4s var(--ease-out-expo) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
     opacity: 1;
     transform: none;
     transition: none;
   }
 
-  html {
-    scroll-behavior: auto;
+  .line-mask > span,
+  .fade-up,
+  .marquee-track,
+  .caret,
+  .scroll-dot,
+  .toast {
+    animation: none;
+  }
+
+  .accordion {
+    transition: none;
   }
 }

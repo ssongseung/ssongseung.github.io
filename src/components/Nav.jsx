@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useActiveSection } from "../hooks/useActiveSection";
 
 const navItems = [
@@ -14,6 +14,32 @@ const sectionIds = navItems.map((item) => item.id);
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const activeId = useActiveSection(sectionIds);
+    const progressRef = useRef(null);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    // 페이지 스크롤 진행률 바 + 스크롤 시 헤더 스타일 전환
+    useEffect(() => {
+        let frame = 0;
+        const update = () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = max > 0 ? window.scrollY / max : 0;
+            if (progressRef.current) progressRef.current.style.transform = `scaleX(${progress})`;
+            setIsScrolled(window.scrollY > 10);
+        };
+        const handleScroll = () => {
+            cancelAnimationFrame(frame);
+            frame = requestAnimationFrame(update);
+        };
+
+        update();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("resize", handleScroll);
+        return () => {
+            cancelAnimationFrame(frame);
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleScroll);
+        };
+    }, []);
 
     const handleNavClick = (e, id) => {
         e.preventDefault();
@@ -22,7 +48,16 @@ const Nav = () => {
     };
 
     return (
-        <header className="fixed top-0 inset-x-0 z-50 border-b border-line bg-paper/80 backdrop-blur-md">
+        <header
+            className={`fixed top-0 inset-x-0 z-50 border-b transition-colors duration-300 ${
+                isScrolled || isOpen ? "border-line bg-paper/80 backdrop-blur-md" : "border-transparent bg-transparent"
+            }`}
+        >
+            <span
+                ref={progressRef}
+                aria-hidden="true"
+                className="absolute left-0 bottom-[-1px] h-[2px] w-full bg-accent origin-left scale-x-0"
+            />
             <div className="max-w-5xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
                 <a
                     href="#home"
@@ -39,11 +74,17 @@ const Nav = () => {
                             <a
                                 href={`#${item.id}`}
                                 onClick={(e) => handleNavClick(e, item.id)}
-                                className={`text-sm font-medium transition-colors ${
+                                className={`group relative py-1 text-sm font-medium transition-colors ${
                                     activeId === item.id ? "text-accent" : "text-ink-soft hover:text-ink"
                                 }`}
                             >
                                 {item.label}
+                                <span
+                                    aria-hidden="true"
+                                    className={`absolute left-0 -bottom-0.5 h-[1.5px] w-full bg-current origin-left transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                                        activeId === item.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                    }`}
+                                />
                             </a>
                         </li>
                     ))}

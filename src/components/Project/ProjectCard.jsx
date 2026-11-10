@@ -1,56 +1,63 @@
-import { useReveal } from "../../hooks/useReveal";
+import { useTilt } from "../../hooks/useInteraction";
 import Tag from "./Tag";
 
-const stripBreaks = (text) => text.replace(/<br\s*\/?>/gi, " ");
-
-const ProjectCard = ({ date, tags, title, url, img, role, skill, contribution }) => {
-    const ref = useReveal();
+/**
+ * Selected Work 대표 프로젝트 카드 (3D 틸트 + 글레어)
+ */
+const ProjectCard = ({ index, title, period, tags, summary, stack, contribution, url, img }) => {
+    const tiltRef = useTilt(6);
+    const Wrapper = url ? "a" : "div";
+    const linkProps = url ? { href: url, target: "_blank", rel: "noreferrer" } : {};
 
     return (
-        <article
-            ref={ref}
-            className="reveal group rounded-2xl border border-line bg-white overflow-hidden transition-shadow hover:shadow-lg"
-        >
-            <div className="aspect-[4/3] overflow-hidden bg-paper-soft">
-                <img
-                    src={img}
-                    alt={`${stripBreaks(title)} 썸네일`}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-            </div>
+        <Wrapper {...linkProps} className="group block h-full [perspective:900px]">
+            <article
+                ref={tiltRef}
+                className="relative h-full flex flex-col rounded-3xl border border-line bg-white overflow-hidden transition-[transform,box-shadow] duration-300 ease-out will-change-transform group-hover:shadow-[0_24px_60px_-20px_rgba(22,22,26,0.25)]"
+            >
+                <div className="relative aspect-[4/3] overflow-hidden bg-paper-soft">
+                    <img
+                        src={img}
+                        alt={`${title} 썸네일`}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+                    />
+                    <div aria-hidden="true" className="tilt-glare absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <span className="absolute top-4 left-4 font-mono text-xs font-medium px-2.5 py-1 rounded-full bg-white/90 backdrop-blur text-ink">
+                        {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {url && (
+                        <span
+                            aria-hidden="true"
+                            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center text-sm scale-0 rotate-[-45deg] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-100 group-hover:rotate-0"
+                        >
+                            ↗
+                        </span>
+                    )}
+                </div>
 
-            <div className="p-5 flex flex-col gap-3">
-                <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs text-ink-faint">{date}</span>
-                    <div className="flex gap-1.5">
-                        {tags.map((tag) => (
-                            <Tag key={tag} text={tag} />
-                        ))}
+                <div className="p-6 flex flex-1 flex-col gap-3">
+                    <div className="flex items-center justify-between gap-2">
+                        <span className="font-mono text-xs text-ink-faint">{period}</span>
+                        <div className="flex gap-1.5">
+                            {tags.map((tag) => (
+                                <Tag key={tag} text={tag} />
+                            ))}
+                        </div>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-ink leading-snug transition-colors group-hover:text-accent">
+                        {title}
+                    </h3>
+                    <p className="text-sm text-ink-soft leading-relaxed">{summary}</p>
+
+                    <div className="flex items-center justify-between gap-2 text-xs pt-3 mt-auto border-t border-line">
+                        <span className="text-ink-faint">{stack.join(" · ")}</span>
+                        <span className="font-medium text-accent shrink-0">{contribution}</span>
                     </div>
                 </div>
-
-                <h3 className="text-lg font-bold text-ink leading-snug">{stripBreaks(title)}</h3>
-
-                <p className="text-sm text-ink-soft leading-relaxed">{role}</p>
-
-                <div className="flex items-center justify-between text-xs text-ink-faint pt-2 border-t border-line">
-                    <span>{skill}</span>
-                    <span className="font-medium text-accent">기여도 {contribution}</span>
-                </div>
-
-                {url && (
-                    <a
-                        href={url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-ink hover:text-accent transition-colors"
-                    >
-                        사이트 보기 <span aria-hidden="true">↗</span>
-                    </a>
-                )}
-            </div>
-        </article>
+            </article>
+        </Wrapper>
     );
 };
 
